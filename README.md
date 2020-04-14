@@ -13,6 +13,13 @@ npm run serve
 ```
 
 ### 3、打包项目
+
+- 测试环境打包
+```
+npm run build:test
+```
+
+- 正式环境打包
 ```
 npm run build
 ```
