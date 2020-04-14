@@ -1,4 +1,4 @@
-# h5
+# MCN-H5（MCN H5注册页）
 
 ## Project setup
 ```
@@ -14,11 +14,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

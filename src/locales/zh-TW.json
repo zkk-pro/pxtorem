@@ -1,0 +1,22 @@
+{
+  "lang": {
+    "img_title": "title_zh_tw",
+    "img_download_text": "download_text_zh_tw",
+    "placeholder_phone": "請輸入手機號",
+    "placeholder_code": "請輸入短信驗證碼",
+    "placeholder_pwd": "請輸入登錄密碼",
+    "btn_code_1": "獲取驗證碼",
+    "btn_code_2": "重新獲取",
+    "btn_submit": "提交",
+    "btn_download_img": "",
+    "btn_download": "點擊下載APP",
+    "text_tips": "註冊成功！",
+    "text_loading": "請稍等...",
+    "validate_phone_1": "請輸入手機號",
+    "validate_phone_2": "手機號格式有誤",
+    "validate_code_1": "請輸入驗證碼",
+    "validate_code_2": "請輸入6位數驗證碼",
+    "validate_pwd_1": "請輸入密碼",
+    "validate_pwd_2": "密碼不能少於6位數"
+  }
+}

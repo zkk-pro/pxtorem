@@ -1,0 +1,22 @@
+{
+  "lang": {
+    "img_title": "title_en",
+    "img_download_text": "download_text_en",
+    "placeholder_phone": "Enter phone number",
+    "placeholder_code": "Enter verification code",
+    "placeholder_pwd": "Enter login password",
+    "btn_code_1": "Get Verification Code",
+    "btn_code_2": "Reacquire",
+    "btn_submit": "Submit",
+    "btn_download_img": "",
+    "btn_download": "Click to download APP",
+    "text_tips": "Registration succeeded!",
+    "text_loading": "Please wait ...",
+    "validate_phone_1": "Please enter your phone number",
+    "validate_phone_2": "The phone number format is incorrect",
+    "validate_code_1": "Please enter the verification code",
+    "validate_code_2": "Please enter a 6-digit verification code",
+    "validate_pwd_1": "Please enter a password",
+    "validate_pwd_2": "Password cannot be less than 6 digits"
+  }
+}

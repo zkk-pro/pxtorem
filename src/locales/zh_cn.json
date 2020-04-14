@@ -1,0 +1,26 @@
+{
+  "lang": {
+    "img_title": "title_zh_cn",
+    "img_download_text": "download_text_zh_cn",
+
+    "placeholder_phone": "请输入手机号",
+    "placeholder_code": "请输入短信验证码",
+    "placeholder_pwd": "请输入登录密码",
+    
+    "btn_code_1": "获取验证码",
+    "btn_code_2": "重新获取",
+    "btn_submit": "提交",
+    "btn_download_img": "",
+    "btn_download": "点击下载APP",
+
+    "text_tips": "注册成功！",
+    "text_loading": "请稍等...",
+
+    "validate_phone_1": "请输入手机号",
+    "validate_phone_2": "手机号格式有误",
+    "validate_code_1": "请输入验证码",
+    "validate_code_2": "请输入6位数验证码",
+    "validate_pwd_1": "请输入密码",
+    "validate_pwd_2": "密码不能少于6位数"
+  }
+}
