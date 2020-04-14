@@ -1,6 +1,15 @@
 module.exports = {
+  publicPath: './',
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      template: 'public/index.html',
+      filename: 'index.html',
+      title: 'MCN Plus'
+    }
+  },
   lintOnSave: false,
-
+  productionSourceMap: false,
   css: {
     loaderOptions: {
       postcss: {
