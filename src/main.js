@@ -23,7 +23,8 @@ function parseUrl() {
   return {}
 }
 
-i18n.locale = parseUrl().lang
+console.log(i18n.locale)
+i18n.locale = parseUrl().lang || 'en'
 
 Vue.prototype.$url_query = parseUrl()
 

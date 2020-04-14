@@ -2,6 +2,7 @@
 
  // 验证对象
 export default {
+  // 手机号校验（非严格）
   phone(p) {
     if (!p) {
       context.$showToast({ content: context.$t('lang.validate_phone_1') });
@@ -13,6 +14,7 @@ export default {
     }
     return true;
   },
+  // 验证码校验
   code(c) {
     if (!c) {
       context.$showToast({ content: context.$t('lang.validate_code_1') });
@@ -24,6 +26,7 @@ export default {
     }
     return true;
   },
+  // 密码校验（非严格）
   password(p) {
     if (!p) {
       context.$showToast({ content: context.$t('lang.validate_pwd_1') });

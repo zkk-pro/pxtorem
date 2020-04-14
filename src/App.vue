@@ -4,14 +4,13 @@
       <img class="logo-img" src="./assets/images/logo.png" alt="logo" />
     </div>
     <div class="title">
-      <!-- <img class="title-img" :src="'./assets/images/' + $t('lang.img_title') + '.png'" alt="logo" /> -->
       <img class="title-img" :src="img_title" alt="logo" />
     </div>
+    <!-- 注册 -->
     <form class="input-container" @submit.prevent="formSubmit" v-if="!showSuccess">
       <div class="input-box">
         <div class="prefix" @click="showSheet=true">
           <span>{{defaultCountry.areaCode | repleaseCode}}</span>
-          <!-- <img :src="`./assets/images/arrow-${this.showSheet? 'up': 'down'}.png`" alt /> -->
           <img :src="arrow_icon" alt />
         </div>
         <input
@@ -51,7 +50,6 @@
         </div>
         <div class="btn-box btn-box-margin">
           <button class="btn download-btn" @click.prevent="downloadApp">
-            <!-- <img :src="'./assets/images/' + $t('lang.img_download_text') + '.png'" alt /> -->
             <img :src="img_download_text" alt />
           </button>
         </div>
@@ -64,6 +62,7 @@
         <button class="btn submit-btn" @click.prevent="downloadApp">{{$t('lang.btn_download')}}</button>
       </div>
     </div>
+    <!-- 底部弹框 -->
     <div class="sheets" v-show="showSheet" @click="showSheet=false">
       <div class="sheets-content" @click.stop="(()=> false)">
         <div class="sheets-title"></div>
