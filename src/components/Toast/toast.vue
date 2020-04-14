@@ -63,8 +63,8 @@ export default {
     _hide() {
       if (this.autoHide || this.showLoading) {
         this.isShow = false;
-        this.autoHide = true
-        this.showLoading = false
+        // this.autoHide = true
+        // this.showLoading = false
         clearTimeout(this.timer);
         this.remove();
       }

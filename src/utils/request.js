@@ -11,8 +11,7 @@ request.interceptors.response.use((res) => {
   if (data.code === 0) {
     return data.data
   } else {
-    // toast.show({ content: data.message })
-    Promise.reject(data)
+    return Promise.reject(data)
   }
 }, err => {
   toast.show({ content: 'error：Network errror'})

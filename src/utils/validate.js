@@ -3,12 +3,12 @@
  // 验证对象
 export default {
   // 手机号校验（非严格）
-  phone(p) {
+  phone(p, prefix) {
     if (!p) {
       context.$showToast({ content: context.$t('lang.validate_phone_1') });
       return false;
     }
-    if (!/^1[3456789]\d{9}$/.test(p)) {
+    if (!/^1[3456789]\d{9}$/.test(p) && prefix === '0086') {
       context.$showToast({ content: context.$t('lang.validate_phone_2') });
       return false;
     }

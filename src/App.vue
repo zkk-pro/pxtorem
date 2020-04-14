@@ -88,10 +88,10 @@ import validate from './utils/validate'
 const host = process.env.VUE_APP_REQUEST_URL;
 // api
 const api = {
-  getCode: "h5/verify/code/send", // 获取验证码接口
-  country: "h5/config/country", // 获取国家和区号
-  register: "h5/user/register/commit", // 注册接口
-  downloadInfo: "h5/config/download" // 下载地址信息
+  getCode: host + "h5/verify/code/send", // 获取验证码接口
+  country: host + "h5/config/country", // 获取国家和区号
+  register: host + "h5/user/register/commit", // 注册接口
+  downloadInfo: host + "h5/config/download" // 下载地址信息
 };
 
 export default {
@@ -155,14 +155,14 @@ export default {
     // 获取国家地区
     async getCountryList() {
       try {
-        this.countryList = await request.get(host + api.country, {params: {lang: this.$url_query.lang}});
+        this.countryList = await request.get(api.country, {params: {lang: this.$url_query.lang}});
         this.defaultCountry = this.countryList.find( item => item.id === 45);
       } catch (error) {}
     },
     // 获取下载信息
     async getDownloadInfo() {
       try {
-        let res = await request.get(host + api.downloadInfo);
+        let res = await request.get(api.downloadInfo);
         let phoneType = this.getPhoneType();
         this.downloadInfo = res.version[phoneType];
       } catch (error) {}
@@ -173,16 +173,15 @@ export default {
         target: this.formData.account,
         countryId: this.defaultCountry.id
       };
-      if (!validate.phone(params.target)) return;
-      this.disableCodeBtn = true;
+      if (!validate.phone(params.target, this.defaultCountry.areaCode)) return;
 
       this.$showToast({ content: this.$t('lang.text_loading'), autoHide: false, showLoading: true });
 
       try {
-        let res = await request.get(host + api.getCode, {
+        let res = await request.get(api.getCode, {
           params: { data: params }
         });
-
+        this.disableCodeBtn = true;
         this.$hideToast()
         let time = 60;
         this.countdown = time + "s";
@@ -196,7 +195,7 @@ export default {
           }
         }, 1000);
       } catch (error) {
-        this.$hideToast();
+        this.$showToast({content: this.$t('lang.validate_phone_2')});
       }
     },
     // 选择国家
@@ -208,7 +207,7 @@ export default {
     async formSubmit() {
       const { formData } = this;
 
-      if (!validate.phone(formData.account)) return;
+      if (!validate.phone(formData.account, this.defaultCountry.areaCode)) return;
       if (!validate.code(formData.code)) return;
       if (!validate.password(formData.password)) return;
 
@@ -217,14 +216,13 @@ export default {
       formData.password = MD5(formData.password).toString();
       formData.countryId = this.defaultCountry.id;
       try {
-        let res = await request.get(host + api.register, {
+        let res = await request.get(api.register, {
           params: { data: formData }
         });
-      this.$hideToast()
-
-      this.showSuccess = true;
+        this.$hideToast()
+        this.showSuccess = true;
       } catch (error) {
-        this.$hideToast();
+        this.$showToast({content: error.message});
       }
     },
     // 下载APP
@@ -250,25 +248,13 @@ export default {
 </script>
 
 <style lang="less">
-html,
-body,
-ul,
-li,
-p {
-  padding: 0;
-  margin: 0;
-}
-body {
-  background: #020002;
-}
-img {
-  display: block;
-}
+@import '~@/assets/css/reset.css';
+
 input {
   border: none;
+  outline: none;
   background: inherit;
   color: #fff;
-  outline: none;
   font-size: 32px;
   padding: 0 10px 32px;
   width: 100%;
@@ -277,15 +263,6 @@ input {
 input::placeholder {
   font-size: 32px;
   color: rgba(255, 255, 255, 0.2);
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 #app {
@@ -400,7 +377,6 @@ input[type="number"] {
         // width: 350px;
         height: 30px;
         margin: 0 auto;
-        display: block;
       }
     }
   }
